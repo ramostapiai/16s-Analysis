@@ -27,6 +27,29 @@ setwd("path")
 #read phyloseq
 readRDS("path/ps4.RDS") -> ps4
 
+######################## I. DATA NORMALIZATION ######################## 
+
+# Using Negative Binomial distribution
+
+# IMP: if samples are going to be rarefaccionated skip this section and move to Rarefacction of samples to the minimum sample size
+
+diagdds = phyloseq_to_deseq2(ps4, ~host_disease) # Any variable of the metadata would work. You need one to create the DESeq object
+# Calculate geometric means
+gm_mean = function(x, na.rm=TRUE){
+  exp(sum(log(x[x > 0]), na.rm=na.rm) / length(x))
+}
+geoMeans = apply(counts(diagdds), 1, gm_mean)
+# Estimate size factors
+diagdds = estimateSizeFactors(diagdds, geoMeans = geoMeans)
+# Get Normalized read counts
+normcounts <- counts(diagdds, normalized = TRUE)
+# Round read counts
+round(normcounts, digits = 0) -> normcountsrd
+# Transform matrix of normalized counts to phyloseq object
+otu_table(normcountsrd, taxa_are_rows = TRUE) -> ncr
+# Replace otu_table in original phyloseq object
+otu_table(ps4) <- ncr
+
 ########## ANALYSIS OF ALL SAMPLES #############
 otuDA<-as.data.frame((otu_table(ps4)))
 phylodiversityRAREF_QA <- pd(otuDA, phy_tree(ps4), include.root=F) ### filogenetic diversity. Include root=FALSE tree generated not a root tree
