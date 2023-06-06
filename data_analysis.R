@@ -165,27 +165,27 @@ multiplot(observed2, chao2, invsimp2, shan2, ACE2, phyl2, cols=3)  #### to run t
 #test <-lmer(Observed~host_disease+collection_date+host_disease+T_or_C+host_sex+Host_Age+drug_usage+(1|host_subject_id), diversityRAREF_Q1)
 #summary(test)`
 #Observed
-t1<-lmer(Observed~host_disease+collection_date+T_or_C+host_sex+drug_usage+(1|host_subject_id), diversityRAREF_Q1)
+t1<-lmer(Observed~host_disease+collection_date+T_or_C+host_sex+drug_usage+Facility+(1|host_subject_id), diversityRAREF_Q1)
 summary(t1)
 anova(t1, test="F")
 #PD
-t1<-lmer(PD~host_disease+collection_date+T_or_C+host_sex+Host_Age+drug_usage+(1|host_subject_id), diversityRAREF_Q1)
+t1<-lmer(PD~host_disease+collection_date+T_or_C+host_sex+Host_Age+drug_usage+Facility+(1|host_subject_id), diversityRAREF_Q1)
 summary(t1)
 anova(t1, test="F")
 #Shannon
-t1<-lmer(Shannon~host_disease+collection_date+T_or_C+host_sex+Host_Age+drug_usage+(1|host_subject_id), diversityRAREF_Q1)
+t1<-lmer(Shannon~host_disease+collection_date+T_or_C+host_sex+Host_Age+drug_usage+Facility+(1|host_subject_id), diversityRAREF_Q1)
 summary(t1)
 anova(t1, test="F")
 #Chao1
-t1<-lmer(Chao1~host_disease+collection_date+T_or_C+host_sex+Host_Age+drug_usage+(1|host_subject_id), diversityRAREF_Q1)
+t1<-lmer(Chao1~host_disease+collection_date+T_or_C+host_sex+Host_Age+drug_usage+Facility+(1|host_subject_id), diversityRAREF_Q1)
 summary(t1)
 anova(t1, test="F")
 #ACE
-t1<-lmer(ACE~host_disease+collection_date+T_or_C+host_sex+Host_Age+drug_usage+(1|host_subject_id), diversityRAREF_Q1)
+t1<-lmer(ACE~host_disease+collection_date+T_or_C+host_sex+Host_Age+drug_usage+Facility+(1|host_subject_id), diversityRAREF_Q1)
 summary(t1)
 anova(t1, test="F")
 #Simpson
-t1<-lmer(Simpson~host_disease+collection_date+T_or_C+host_sex+Host_Age+drug_usage+(1|host_subject_id), diversityRAREF_Q1)
+t1<-lmer(Simpson~host_disease+collection_date+T_or_C+host_sex+Host_Age+drug_usage+Facility+(1|host_subject_id), diversityRAREF_Q1)
 summary(t1)
 anova(t1, test="F")
 
@@ -319,22 +319,22 @@ write.csv(table_all_Genus,file="table_all_Genus_nasal.csv")
 table_all_phyla
 
 #Proteobacteria
-t1<-lmer(Proteobacteria~host_disease + collection_date + (1|host_subject_id), table_all_phyla, REML = FALSE) 
+t1<-lmer(Proteobacteria~host_disease + collection_date + Facility+ (1|host_subject_id), table_all_phyla, REML = FALSE) 
 summary(t1)
 anova(t1, test="F")
 
 #Firmicutes
-t1<-lmer(Firmicutes~host_disease + collection_date + (1|host_subject_id), table_all_phyla, REML = FALSE) 
+t1<-lmer(Firmicutes~host_disease + collection_date + Facility+ (1|host_subject_id), table_all_phyla, REML = FALSE) 
 summary(t1)
 anova(t1, test="F")
 
 #Actinobacteria
-t1<-lmer(Actinobacteria~host_disease + collection_date + (1|host_subject_id), table_all_phyla, REML = FALSE) 
+t1<-lmer(Actinobacteria~host_disease + collection_date + Facility+ (1|host_subject_id), table_all_phyla, REML = FALSE) 
 summary(t1)
 anova(t1, test="F")
 
 #Bacteroidetes
-t1<-lmer(Bacteroidetes~host_disease + collection_date + (1|host_subject_id), table_all_phyla, REML = FALSE) 
+t1<-lmer(Bacteroidetes~host_disease + collection_date + Facility+ (1|host_subject_id), table_all_phyla, REML = FALSE) 
 summary(t1)
 anova(t1, test="F")
 
@@ -342,32 +342,32 @@ anova(t1, test="F")
 table_all_Genus
 
 #Moraxella
-t1<-lmer(Moraxella~host_disease + collection_date + (1|host_subject_id), table_all_Genus, REML = FALSE) 
+t1<-lmer(Moraxella~host_disease + collection_date + Facility+ (1|host_subject_id), table_all_Genus, REML = FALSE) 
 summary(t1)
 anova(t1, test="F")
 
 #Haemophilus
-t1<-lmer(Haemophilus~host_disease + collection_date + (1|host_subject_id), table_all_Genus, REML = FALSE) 
+t1<-lmer(Haemophilus~host_disease + collection_date + Facility+ (1|host_subject_id), table_all_Genus, REML = FALSE) 
 summary(t1)
 anova(t1, test="F")
 
 #Streptococcus
-t1<-lmer(Streptococcus~host_disease + collection_date + (1|host_subject_id), table_all_Genus, REML = FALSE) 
+t1<-lmer(Streptococcus~host_disease + collection_date + Facility+ (1|host_subject_id), table_all_Genus, REML = FALSE) 
 summary(t1)
 anova(t1, test="F")
 
 #Dolosigranulum
-t1<-lmer(Dolosigranulum~host_disease + collection_date  + (1|host_subject_id), table_all_Genus, REML = FALSE) 
+t1<-lmer(Dolosigranulum~host_disease + collection_date  + Facility+ (1|host_subject_id), table_all_Genus, REML = FALSE) 
 summary(t1)
 anova(t1, test="F")
 
 #Corynebacterium_1
-t1<-lmer(Corynebacterium_1~host_disease + collection_date + (1|host_subject_id), table_all_Genus, REML = FALSE) 
+t1<-lmer(Corynebacterium_1~host_disease + collection_date + Facility+ (1|host_subject_id), table_all_Genus, REML = FALSE) 
 summary(t1)
 anova(t1, test="F")
 
 #Staphylococcus
-t1<-lmer(Staphylococcus~host_disease + collection_date + (1|host_subject_id), table_all_Genus, REML = FALSE) 
+t1<-lmer(Staphylococcus~host_disease + collection_date + Facility+ (1|host_subject_id), table_all_Genus, REML = FALSE) 
 summary(t1)
 anova(t1, test="F")
 
@@ -457,27 +457,27 @@ multiplot(observed2, chao2, invsimp2, shan2, ACE2, phyl2, cols=3)  #### to run t
 #test <-lmer(Observed~host_disease+collection_date+host_disease+T_or_C+host_sex+Host_Age+drug_usage+(1|host_subject_id), diversityRAREF_Q1)
 #summary(test)
 #Observed
-t1<-lmer(Observed~host_disease+collection_date+T_or_C+host_sex+drug_usage+(1|host_subject_id), diversityRAREF_Q1)
+t1<-lmer(Observed~host_disease+collection_date+T_or_C+host_sex+drug_usage+Facility+(1|host_subject_id), diversityRAREF_Q1)
 summary(t1)
 anova(t1, test="F")
 #PD
-t1<-lmer(PD~host_disease+collection_date+T_or_C+host_sex+drug_usage+(1|host_subject_id), diversityRAREF_Q1)
+t1<-lmer(PD~host_disease+collection_date+Facility+(1|host_subject_id), diversityRAREF_Q1)
 summary(t1)
 anova(t1, test="F")
 #Shannon
-t1<-lmer(Shannon~host_disease+collection_date+T_or_C+host_sex+drug_usage+(1|host_subject_id), diversityRAREF_Q1)
+t1<-lmer(Shannon~host_disease+collection_date+Facility+(1|host_subject_id), diversityRAREF_Q1)
 summary(t1)
 anova(t1, test="F")
 #Chao1
-t1<-lmer(Chao1~host_disease+collection_date+T_or_C+host_sex+drug_usage+(1|host_subject_id), diversityRAREF_Q1)
+t1<-lmer(Chao1~host_disease+collection_date+Facility+(1|host_subject_id), diversityRAREF_Q1)
 summary(t1)
 anova(t1, test="F")
 #ACE
-t1<-lmer(ACE~host_disease+collection_date+T_or_C+host_sex+drug_usage+(1|host_subject_id), diversityRAREF_Q1)
+t1<-lmer(ACE~host_disease+collection_date+Facility+(1|host_subject_id), diversityRAREF_Q1)
 summary(t1)
 anova(t1, test="F")
 #Simpson
-t1<-lmer(Simpson~host_disease+collection_date+T_or_C+host_sex+drug_usage+(1|host_subject_id), diversityRAREF_Q1)
+t1<-lmer(Simpson~host_disease+collection_date+Facility+(1|host_subject_id), diversityRAREF_Q1)
 summary(t1)
 anova(t1, test="F")
 
@@ -597,27 +597,27 @@ write.csv(table_all_Genus,file="table_all_Genus_oral.csv")
 table_all_phyla
 
 #Proteobacteria
-t1<-lmer(Proteobacteria~host_disease+ collection_date + (1|host_subject_id), table_all_phyla, REML = FALSE)
+t1<-lmer(Proteobacteria~host_disease+ collection_date + Facility+ (1|host_subject_id), table_all_phyla, REML = FALSE)
 summary(t1)
 anova(t1, test="F")
 
 #Firmicutes
-t1<-lmer(Firmicutes~host_disease+ collection_date + (1|host_subject_id), table_all_phyla, REML = FALSE)
+t1<-lmer(Firmicutes~host_disease+ collection_date + Facility+ (1|host_subject_id), table_all_phyla, REML = FALSE)
 summary(t1)
 anova(t1, test="F")
 
 #Actinobacteria
-t1<-lmer(Actinobacteria~host_disease+ collection_date + (1|host_subject_id), table_all_phyla, REML = FALSE)
+t1<-lmer(Actinobacteria~host_disease+ collection_date + Facility+ (1|host_subject_id), table_all_phyla, REML = FALSE)
 summary(t1)
 anova(t1, test="F")
 
 #Bacteroidetes
-t1<-lmer(Bacteroidetes~host_disease+ collection_date + (1|host_subject_id), table_all_phyla, REML = FALSE)
+t1<-lmer(Bacteroidetes~host_disease+ collection_date + Facility+ (1|host_subject_id), table_all_phyla, REML = FALSE)
 summary(t1)
 anova(t1, test="F")
 
 #Fusobacteria
-t1<-lmer(Fusobacteria~host_disease+ collection_date + (1|host_subject_id), table_all_phyla, REML = FALSE)
+t1<-lmer(Fusobacteria~host_disease+ collection_date + Facility+ (1|host_subject_id), table_all_phyla, REML = FALSE)
 summary(t1)
 anova(t1, test="F")
 
@@ -625,37 +625,37 @@ anova(t1, test="F")
 table_all_Genus
 
 #Streptococcus
-t1<-lmer(Streptococcus~host_disease + collection_date+ (1|host_subject_id), table_all_Genus, REML = FALSE)
+t1<-lmer(Streptococcus~host_disease + collection_date+ Facility+ (1|host_subject_id), table_all_Genus, REML = FALSE)
 summary(t1)
 anova(t1, test="F")
 
 #Haemophilus
-t1<-lmer(Haemophilus~host_disease + collection_date + (1|host_subject_id), table_all_Genus, REML = FALSE)
+t1<-lmer(Haemophilus~host_disease + collection_date + Facility+ (1|host_subject_id), table_all_Genus, REML = FALSE)
 summary(t1)
 anova(t1, test="F")
 
 #Gemella
-t1<-lmer(Gemella~host_disease + collection_date + (1|host_subject_id), table_all_Genus, REML = FALSE)
+t1<-lmer(Gemella~host_disease + collection_date + Facility+ (1|host_subject_id), table_all_Genus, REML = FALSE)
 summary(t1)
 anova(t1, test="F")
 
 #Moraxella
-t1<-lmer(Moraxella~host_disease + collection_date + (1|host_subject_id), table_all_Genus, REML = FALSE)
+t1<-lmer(Moraxella~host_disease + collection_date + Facility+ (1|host_subject_id), table_all_Genus, REML = FALSE)
 summary(t1)
 anova(t1, test="F")
 
 #Neisseria
-t1<-lmer(Neisseria~host_disease + collection_date + (1|host_subject_id), table_all_Genus, REML = FALSE)
+t1<-lmer(Neisseria~host_disease + collection_date + Facility+ (1|host_subject_id), table_all_Genus, REML = FALSE)
 summary(t1)
 anova(t1, test="F")
 
 #Veillonella
-t1<-lmer(Veillonella~host_disease + collection_date + (1|host_subject_id), table_all_Genus, REML = FALSE)
+t1<-lmer(Veillonella~host_disease + collection_date + Facility+ (1|host_subject_id), table_all_Genus, REML = FALSE)
 summary(t1)
 anova(t1, test="F")
 
 #Porphyromonas
-t1<-lmer(Porphyromonas~host_disease + collection_date + (1|host_subject_id), table_all_Genus, REML = FALSE)
+t1<-lmer(Porphyromonas~host_disease + collection_date + Facility+ (1|host_subject_id), table_all_Genus, REML = FALSE)
 summary(t1)
 anova(t1, test="F")
 
