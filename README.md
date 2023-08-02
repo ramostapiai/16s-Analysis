@@ -10,4 +10,4 @@ Cite:
 Ramos-Tapia I, Reynaldos-Grandón KL, Pérez-Losada M and Castro-Nallar E (2023) Characterization of the upper respiratory tract microbiota in Chilean asthmatic children reveals compositional, functional, and structural differences. Front. Allergy 4:1223306. doi: 10.3389/falgy.2023.1223306
 
 Link to paper:
-https://www.frontiersin.org/articles/10.3389/falgy.2023.1223306/full#h12
+https://www.frontiersin.org/articles/10.3389/falgy.2023.1223306/full
